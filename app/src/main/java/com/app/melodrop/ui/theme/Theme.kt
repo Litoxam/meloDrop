@@ -61,7 +61,7 @@ private val MelodropColorScheme = darkColorScheme(
 )
 
 @Composable
-fun MeloDropTheme(content: @Composable () -> Unit) {
+fun meloDropTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = MelodropColorScheme,
         typography = Typography,

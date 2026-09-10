@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.melodrop.ui.auth.LoginScreen
-import com.app.melodrop.ui.theme.MeloDropTheme
+import com.app.melodrop.ui.theme.meloDropTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
             navigationBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
         )
         setContent {
-            MeloDropTheme {
+            meloDropTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     LoginScreen(
                         onLoginClick = { email, password ->
@@ -49,7 +49,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    MeloDropTheme {
+    meloDropTheme {
         Greeting("Android")
     }
 }
