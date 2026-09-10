@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo Melodrop (provisoire) : goutte mandarine et barres blanches, fond transparent -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="70dp"
+    android:height="102dp"
+    android:viewportWidth="70"
+    android:viewportHeight="102">
+
+    <!-- Goutte -->
+    <path
+        android:fillColor="#FF8A3D"
+        android:pathData="M35,1C47,17 69,39 69,67A34,34 0 0,1 1,67C1,39 23,17 35,1Z" />
+
+    <!-- Barres blanches -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="round"
+        android:pathData="M13,59L13,79M24,49L24,89M35,37L35,91M46,55L46,83M57,63L57,75" />
+</vector>
