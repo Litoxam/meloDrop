@@ -1,57 +1,69 @@
 package com.app.melodrop.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+/*
+ * Melodrop n'a qu'une seule apparence : la DA Nuit.
+ * Le thème ignore volontairement le mode clair/sombre du téléphone.
+ *
+ * darkColorScheme() reste utilisé car c'est lui qui fournit des valeurs par défaut
+ * adaptées à un fond sombre pour les rôles non redéfinis (les couleurs d'erreur).
+ *
+ * Chaque rôle "xxx" a son "onXxx" : la couleur du texte ou des icônes posés dessus.
+ * Tous les autres rôles sont définis : ceux qu'on oublie retombent
+ * sur la palette violette par défaut de Material 3.
+ */
+private val MelodropColorScheme = darkColorScheme(
+    // Actions principales (Button, Switch activé, Slider...)
+    primary = Mandarine,
+    onPrimary = Encre,                    // texte sombre sur orange, bien plus lisible que du blanc
+    primaryContainer = MandarineSombre,   // FloatingActionButton
+    onPrimaryContainer = PecheClaire,
+    inversePrimary = OrangeBrule,         // bouton d'action d'une Snackbar
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    // Éléments secondaires, volontairement neutres pour garder l'orange rare
+    secondary = NuitGrisClair,
+    onSecondary = NuitSurfaceHigh,
+    secondaryContainer = NuitSurfaceHighest,  // indicateur de la NavigationBar, FilterChip sélectionné
+    onSecondaryContainer = NuitTexte,
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    // Accent doux (tags de genre, badges...)
+    tertiary = MandarinePale,
+    onTertiary = BrunOrange,
+    tertiaryContainer = MandarineSombre,
+    onTertiaryContainer = PecheClaire,
+
+    // Fonds et textes
+    background = Encre,
+    onBackground = NuitTexte,
+    surface = Encre,                      // écrans, TopAppBar
+    onSurface = NuitTexte,
+    surfaceVariant = NuitSurfaceHigh,
+    onSurfaceVariant = NuitTexteSecondaire,
+    surfaceTint = NuitTexteSecondaire,    // évite que les surfaces surélevées virent à l'orange
+    inverseSurface = NuitTexte,           // fond des Snackbar
+    inverseOnSurface = NuitSurfaceHigh,
+
+    // Contours
+    outline = NuitContour,                // OutlinedTextField
+    outlineVariant = NuitSeparateur,      // HorizontalDivider
+
+    // Échelle des surfaces
+    surfaceDim = Encre,
+    surfaceBright = NuitSurfaceBright,
+    surfaceContainerLowest = NuitSurfaceLowest,
+    surfaceContainerLow = NuitSurfaceLow,          // ModalBottomSheet, ElevatedCard
+    surfaceContainer = NuitSurfaceContainer,       // NavigationBar
+    surfaceContainerHigh = NuitSurfaceHigh,        // AlertDialog
+    surfaceContainerHighest = NuitSurfaceHighest   // Card, TextField rempli
 )
 
 @Composable
-fun MeloDropTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
+fun meloDropTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = MelodropColorScheme,
         typography = Typography,
         content = content
     )
