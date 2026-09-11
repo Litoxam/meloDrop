@@ -32,7 +32,7 @@ fun DropScreen(name: String, modifier: Modifier = Modifier) {
     {
         Surface(color = MaterialTheme.colorScheme.primary) {
             Text(
-                text = "${Label.DROP} $name!",
+                text = "${Tabs.DROP} $name!",
                 fontFamily = Unbounded,
                 color = MaterialTheme.colorScheme.onPrimary
             )

@@ -32,7 +32,7 @@ fun ProfileScreen(name: String, modifier: Modifier = Modifier) {
     {
         Surface(color = MaterialTheme.colorScheme.primary) {
             Text(
-                text = "${Label.PROFILE} $name!",
+                text = "${Tabs.PROFILE} $name!",
                 fontFamily = Unbounded,
                 color = MaterialTheme.colorScheme.onPrimary
             )

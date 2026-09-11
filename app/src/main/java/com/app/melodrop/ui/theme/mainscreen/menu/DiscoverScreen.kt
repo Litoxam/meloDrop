@@ -32,7 +32,7 @@ fun DiscoverScreen(name: String, modifier: Modifier = Modifier) {
     {
         Surface(color = MaterialTheme.colorScheme.primary) {
             Text(
-                text = "${Label.DISCOVER} $name!",
+                text = "${Tabs.DISCOVER} $name!",
                 fontFamily = Unbounded,
                 color = MaterialTheme.colorScheme.onPrimary
             )
